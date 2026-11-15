@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>5 meses contigo, mi amor</title>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--y:#ffd84a;--yd:#c9a21c;--r:#e63946;--d:#12351f;--c:#fff6d6;--ps:90px}
+*{box-sizing:border-box;margin:0;-webkit-tap-highlight-color:transparent}
+html,body{height:100%;overflow:hidden}
+body{font-family:'Fredoka',system-ui,sans-serif;color:var(--d);background:linear-gradient(180deg,#a8ecc0 0%,#3aa866 60%,#12351f 100%);user-select:none;-webkit-user-select:none}
+.sun{position:fixed;top:-70px;right:-70px;width:230px;height:230px;border-radius:50%;background:radial-gradient(#fff6b0,var(--y) 60%,transparent 70%);animation:spin 30s linear infinite}
+.sun::after{content:"";position:absolute;inset:-30px;border-radius:50%;border:6px dotted #fff9;animation:spin 12s linear infinite reverse}
+@keyframes spin{to{transform:rotate(360deg)}}
+.hills{position:fixed;left:-10%;right:-10%;bottom:-8vh;height:26vh;pointer-events:none;background:radial-gradient(ellipse at 25% 100%,#1f7a46 55%,transparent 56%),radial-gradient(ellipse at 75% 100%,#176238 55%,transparent 56%)}
+.palm{position:fixed;bottom:2vh;font-size:clamp(3.5rem,9vw,7rem);pointer-events:none;transform-origin:50% 100%;animation:sway 4s ease-in-out infinite}
+@keyframes sway{50%{transform:rotate(7deg)}}
+.lf{position:fixed;top:-50px;opacity:.55;pointer-events:none;animation:drift linear infinite}
+@keyframes drift{to{transform:translate(70px,112vh) rotate(360deg)}}
+.ff{position:fixed;width:8px;height:8px;border-radius:50%;background:#fff6a0;box-shadow:0 0 12px 5px #ffe96688;pointer-events:none;animation:ff 6s ease-in-out infinite}
+@keyframes ff{0%,100%{transform:translate(0,0);opacity:.1}50%{transform:translate(40px,-60px);opacity:1}}
+.tr{position:fixed;font-size:16px;pointer-events:none;z-index:40;transform:translate(-50%,-50%);animation:tr .9s forwards}
+@keyframes tr{to{opacity:0;transform:translate(-50%,40px) scale(.3) rotate(120deg)}}
+.dots{position:fixed;top:22px;left:50%;transform:translateX(-50%);display:flex;gap:8px;z-index:60}
+.dots i{width:12px;height:12px;border-radius:50%;background:#fff6;transition:.4s}
+.dots i.on{background:var(--y);transform:scale(1.5);box-shadow:0 0 10px var(--y)}
+.mus{position:fixed;top:10px;left:10px;z-index:60;width:46px;height:46px;border-radius:50%;border:3px solid #fff;background:var(--r);font-size:1.2rem;cursor:pointer;box-shadow:0 4px 0 #9b1d28}
+.scene{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:safe center;padding:64px 18px 24px;text-align:center;overflow-y:auto;opacity:0;pointer-events:none;transform:scale(.85) rotate(-3deg);transition:opacity .6s,transform .8s cubic-bezier(.2,1.5,.4,1)}
+.scene.on{opacity:1;pointer-events:auto;transform:none}
+h1{font-size:clamp(2rem,8vw,4rem);color:#fff;line-height:1.05;text-shadow:0 4px 0 var(--r),0 10px 20px #0006;margin:6px 0}
+.tt span{display:inline-block;animation:hop 2.6s infinite}
+@keyframes hop{0%,25%,100%{transform:none}12%{transform:translateY(-14px) rotate(-6deg)}}
+h2{font-size:clamp(1.5rem,5.5vw,2.6rem);color:#fff;text-shadow:0 3px 0 var(--r);margin-bottom:6px;line-height:1.1}
+p{color:#fff;font-size:clamp(1rem,2.4vw,1.25rem);max-width:460px;text-shadow:0 2px 6px #0007}
+.sm{font-size:clamp(.9rem,2vw,1.05rem);opacity:.92;margin-top:6px}
+.jg img,.jg .fb{display:block;margin:auto;max-width:100%;object-fit:contain;filter:drop-shadow(0 12px 10px #0005);color:#fff;font-size:.8rem}
+.jg .fb{font-size:5rem}
+.big{height:clamp(120px,28vh,300px);animation:bob 2.2s ease-in-out infinite}.big img{height:100%;width:auto}
+@keyframes bob{50%{transform:translateY(-14px) rotate(5deg)}}
+.mini{height:clamp(80px,17vh,170px);margin-bottom:8px}.mini img{height:100%;width:auto}
+.box{font-size:clamp(4.5rem,12vw,7rem);cursor:pointer;margin-top:10px;animation:shake 1.3s infinite}
+@keyframes shake{0%,60%,100%{transform:rotate(0)}70%{transform:rotate(-12deg)}80%{transform:rotate(12deg)}90%{transform:rotate(-8deg)}}
+.btn{margin-top:18px;padding:14px 28px;border:0;border-radius:99px;background:var(--y);color:var(--d);font:700 clamp(1.05rem,2.4vw,1.3rem) 'Fredoka',sans-serif;box-shadow:0 6px 0 var(--yd);cursor:pointer;animation:pulse 1.6s infinite}
+.btn:active{transform:translateY(4px);box-shadow:0 2px 0 var(--yd)}
+@keyframes pulse{50%{transform:scale(1.07)}}
+.hidden{display:none!important}
+#arena{position:relative;width:100%;max-width:620px;height:clamp(240px,50vh,520px);border-radius:24px;background:#ffffff26;overflow:hidden;border:3px dashed #fffa;margin-top:8px;touch-action:none;flex:none}
+#pl{position:absolute;bottom:4px;height:var(--ps);transform:translateX(-50%);transition:left .08s}
+#pl img{height:100%;width:auto}#pl .fb{font-size:calc(var(--ps)*.8)}
+.ban{position:absolute;font-size:clamp(2.2rem,5vw,3rem);transform:translate(-50%,0)}
+.slots{display:flex;gap:6px;font-size:clamp(1.8rem,4vw,2.4rem);margin-top:10px}
+.slots span{filter:grayscale(1) opacity(.4);transition:.4s}
+.slots span.f{filter:none;transform:scale(1.3) rotate(10deg)}
+.bushes{display:flex;flex-wrap:wrap;justify-content:center;gap:6px;max-width:460px;margin:8px 0}
+.bush{font-size:clamp(3.8rem,10vw,5.6rem);cursor:pointer;line-height:1;transition:.3s}
+.bush.s{animation:rustle .5s}.bush.o{cursor:default;animation:pop .5s}
+@keyframes rustle{25%{transform:rotate(-14deg) scale(1.1)}75%{transform:rotate(14deg) scale(1.1)}}
+.say{display:flex;align-items:center;gap:12px;background:#fff;border-radius:22px;padding:10px 16px;max-width:520px;box-shadow:0 8px 22px #0006;animation:pop .5s;min-height:100px;color:var(--d);text-align:left;font-weight:600;font-size:clamp(1rem,2.3vw,1.2rem);border:3px solid var(--y)}
+.say .jg{flex:0 0 clamp(80px,16vw,130px)}.say .jg img{height:auto;max-height:110px}.say .jg .fb{font-size:3.4rem}
+@keyframes pop{from{transform:scale(.3) rotate(15deg);opacity:0}}
+.paper{background:var(--c);border-radius:16px;padding:clamp(16px,3vw,28px);max-width:620px;width:100%;max-height:50vh;overflow:auto;text-align:left;white-space:pre-wrap;line-height:1.55;box-shadow:0 10px 30px #0007;border-left:8px solid var(--r);font-size:clamp(.98rem,2.2vw,1.2rem);user-select:text;flex:none}
+.paper.t::after{content:"🍌";display:inline-block;animation:pulse .8s infinite}
+.vale{position:relative;width:min(88vw,420px);height:clamp(190px,30vh,250px);border-radius:18px;background:#fff;border:4px dashed var(--r);overflow:hidden;display:grid;place-items:center;margin-top:10px;color:var(--d);flex:none}
+.vale div{padding:12px;line-height:1.35;font-size:clamp(.95rem,2vw,1.1rem)}.vale big{font-size:clamp(1.4rem,3.4vw,1.8rem);color:var(--r);display:block;margin:4px 0}
+.vale canvas{position:absolute;inset:0;touch-action:none}
+.inv{font-size:clamp(1.7rem,6vw,3.1rem);color:#fff;text-shadow:0 3px 0 var(--r),0 8px 18px #0006;line-height:1.15;max-width:640px;margin:6px 0}
+.pop{font-size:clamp(3rem,10vw,5rem);animation:bob 1.6s ease-in-out infinite}
+.row{display:flex;gap:14px;flex-wrap:wrap;justify-content:center;align-items:center;min-height:70px}
+.no{background:#fff;box-shadow:0 6px 0 #bbb;animation:none}
+.cf{position:fixed;top:-30px;font-size:1.6rem;pointer-events:none;z-index:50;animation:cf 3.4s linear forwards}
+@keyframes cf{to{transform:translate(var(--dx),110vh) rotate(720deg)}}
+@media(min-width:900px){:root{--ps:120px}}
+@media(max-height:640px){.big{height:22vh}.mini{height:13vh}:root{--ps:72px}}
+@media(prefers-reduced-motion:reduce){*{animation-duration:.01s!important;animation-iteration-count:1!important}}
+</style>
+</head>
+<body>
+<div class="sun"></div><div class="hills"></div>
+<div class="palm" style="left:-8px">🌴</div><div class="palm" style="right:-8px;animation-delay:-2s">🌴</div>
+<div class="dots" id="dots"><i class="on"></i><i></i><i></i><i></i><i></i><i></i></div>
+<button class="mus" id="mus" aria-label="Música">🎵</button>
+<!-- Cambia la ruta por tu canción -->
+<audio id="au" src="rutadelamusica.mp3" loop></audio>
+
+<section class="scene on">
+  <div class="jg big" data-j="0"></div>
+  <h1 class="tt" id="tt"></h1>
+  <p>Hoy cumplimos <b>5 meses</b>, mi changuita, y tu changuito encontró algo para ti…</p>
+  <div class="box" id="box">🎁</div>
+  <p class="sm">Toca la caja</p>
+</section>
+
+<section class="scene">
+  <h2>Ayuda a tu changuito a atrapar 5 bananas</h2>
+  <p class="sm">Mueve el dedo (o el mouse) para guiarlo. Una banana por cada mes 💛</p>
+  <div id="arena"><div id="pl" class="jg" data-j="1"></div></div>
+  <div class="slots" id="slots"><span>🍌</span><span>🍌</span><span>🍌</span><span>🍌</span><span>🍌</span></div>
+  <button class="btn hidden" id="g-next">Seguir explorando 🌴</button>
+</section>
+
+<section class="scene">
+  <h2>Tu changuito se esconde en la selva 🙈</h2>
+  <p class="sm" id="bmsg">¡Encuéntralo! Toca los arbustos y descubre dónde se escondió</p>
+  <div class="bushes" id="bushes"></div>
+  <div id="say"></div>
+  <button class="btn hidden" id="b-next">Hay una carta para ti 💌</button>
+</section>
+
+<section class="scene">
+  <div class="jg mini" data-j="3"></div>
+  <h2>Para mi changuita hermosa ❤️</h2>
+  <div class="paper t" id="paper"></div>
+  <button class="btn hidden" id="l-next">Una sorpresa más 🎁</button>
+</section>
+
+<section class="scene">
+  <div class="jg mini" data-j="4"></div>
+  <h2>Raspa y descubre</h2>
+  <div class="vale">
+    <div><b>VALE POR</b><big>Una tarde de aventura 🍌</big>
+      Tú eliges el plan: cine, helado o caramelitos.<br><small>Entrégamelo con 2 días de anticipación 😉</small></div>
+    <canvas id="sc"></canvas>
+  </div>
+  <button class="btn" id="v-next">Y todavía hay algo más 🍿</button>
+  <p class="sm">Con mucho amor, de tu programador favorito, James 🦖</p>
+</section>
+
+<section class="scene">
+  <div class="jg mini" data-j="0"></div>
+  <div class="pop">🍿</div>
+  <div class="inv">TE INVITO ESTA NOCHE A VER LA SERIE QUE ESTUVIMOS ESPERANDO</div>
+  <p>Ya tengo la plataforma, solo me hace falta tu compañía 💛</p>
+  <div class="row" id="row">
+    <button class="btn" id="si">¡Sí, voy! 🍿</button>
+    <button class="btn no" id="no">Mmm, déjame pensarlo…</button>
+  </div>
+  <p id="fin" class="inv hidden" style="font-size:clamp(1.3rem,4.5vw,2rem)">¡Es una cita, mi changuita! Esta noche te espero 🍿💛</p>
+</section>
+
+<script>
+const $=s=>document.querySelector(s),S=[...document.querySelectorAll('.scene')],D=[...document.querySelectorAll('#dots i')];
+
+/* IMÁGENES DE JORGE: deben estar en la misma carpeta que este archivo. Si falta una, se muestra un 🐒 */
+const J=[
+ ['jorge1.png','Aquí Jorge el Curioso saludando feliz'],
+ ['jorge2.png','Aquí Jorge el Curioso corriendo'],
+ ['jorge3.png','Aquí Jorge el Curioso asomándose entre los arbustos'],
+ ['jorge4.png','Aquí Jorge el Curioso con una carta'],
+ ['jorge5.png','Aquí Jorge el Curioso celebrando con una banana']
+];
+function jimg(n){const i=new Image();i.src=J[n][0];i.alt=J[n][1];
+ i.onerror=()=>{const s=document.createElement('span');s.className='fb';s.textContent='🐒';i.replaceWith(s)};return i}
+document.querySelectorAll('[data-j]').forEach(e=>e.append(jimg(+e.dataset.j)));
+
+let cur=0;
+const F=[null,startGame,null,typeLetter,initScratch,null];
+function go(n){S[cur].classList.remove('on');D[cur].classList.remove('on');cur=n;S[cur].classList.add('on');D[cur].classList.add('on');if(F[n])F[n]()}
+
+$('#tt').innerHTML=[...'Una aventura muy curiosa'].map((c,i)=>`<span style="animation-delay:${i*.08}s">${c==' '?'&nbsp;':c}</span>`).join('');
+
+for(let i=0;i<14;i++){const l=document.createElement('div');l.className='lf';l.textContent=['🌿','🍃','🌴'][i%3];
+ l.style.cssText=`left:${Math.random()*100}%;font-size:${20+Math.random()*30}px;animation-duration:${8+Math.random()*10}s;animation-delay:-${Math.random()*10}s`;document.body.append(l)}
+for(let i=0;i<14;i++){const f=document.createElement('div');f.className='ff';
+ f.style.cssText=`left:${Math.random()*100}%;top:${30+Math.random()*60}%;animation-delay:-${Math.random()*6}s;animation-duration:${4+Math.random()*5}s`;document.body.append(f)}
+
+let lt=0;
+addEventListener('pointermove',e=>{if(Date.now()-lt<70)return;lt=Date.now();
+ const t=document.createElement('span');t.className='tr';t.textContent='🍌';t.style.left=e.clientX+'px';t.style.top=e.clientY+'px';document.body.append(t);setTimeout(()=>t.remove(),900)});
+
+function cf(n=40){const e=['🍌','💛','💙','🦖','✨','🐒'];
+ for(let i=0;i<n;i++){const s=document.createElement('span');s.className='cf';s.textContent=e[i%e.length];
+ s.style.left=Math.random()*100+'vw';s.style.setProperty('--dx',(Math.random()*160-80)+'px');
+ s.style.animationDelay=Math.random()*.6+'s';document.body.append(s);setTimeout(()=>s.remove(),4200)}}
+
+const au=$('#au'),mus=$('#mus');
+mus.onclick=()=>{if(au.paused){au.play().catch(()=>{});mus.textContent='🔊'}else{au.pause();mus.textContent='🎵'}};
+
+/* 1. Caja */
+$('#box').onclick=()=>{$('#box').textContent='🍌';cf(40);setTimeout(()=>go(1),900)};
+
+/* 2. Juego */
+const sl=[...document.querySelectorAll('#slots span')],ar=$('#arena'),pl=$('#pl');
+let caught=0,px=.5,items=[],run=false,last=0,spawn=0;
+const mv=e=>{const q=ar.getBoundingClientRect(),n=Math.min(.95,Math.max(.05,(e.clientX-q.left)/q.width));
+ if(Math.abs(n-px)>.004)pl.firstChild.style.transform=`scaleX(${n<px?-1:1})`;
+ px=n;pl.style.left=px*100+'%'};
+ar.onpointermove=mv;ar.onpointerdown=mv;pl.style.left='50%';
+function startGame(){if(caught>=5||run)return;run=true;last=performance.now();requestAnimationFrame(tick)}
+function tick(t){
+ if(!run)return;const dt=Math.min(40,t-last);last=t;spawn-=dt;
+ const W=ar.clientWidth,H=ar.clientHeight,ph=pl.offsetHeight,half=Math.max(36,pl.offsetWidth/2);
+ if(spawn<=0){spawn=650;const el=document.createElement('span');el.className='ban';el.textContent='🍌';ar.append(el);
+  items.push({el,x:.08+Math.random()*.84,y:-40,v:(.12+Math.random()*.08)*Math.max(1,H/420)})}
+ items=items.filter(o=>{
+  o.y+=o.v*dt;o.el.style.left=o.x*W+'px';o.el.style.top=o.y+'px';o.el.style.transform=`translate(-50%,0) rotate(${o.y}deg)`;
+  if(o.y>H-ph-6&&o.y<H-20&&Math.abs(o.x*W-px*W)<half+10){o.el.remove();sl[caught++].classList.add('f');cf(8);return false}
+  if(o.y>H){o.el.remove();return false}return true});
+ if(caught>=5){run=false;items.forEach(o=>o.el.remove());items=[];$('#g-next').classList.remove('hidden');cf(60);return}
+ requestAnimationFrame(tick)}
+$('#g-next').onclick=()=>go(2);
+
+/* 3. Tu changuito se esconde */
+const R=['¡Me encontraste, mi changuita! Me escondí para decirte que me haces reír hasta con las cosas más simples.',
+ '¡Casi no me ves! Contigo hasta ir a Sodimac y Promart se siente como una gran aventura.',
+ '¡Aquí estaba! Quería decirte que valoro mucho tu paciencia conmigo y con mis códigos.',
+ '¡Ups, me descubriste! Tu sonrisa me arregla cualquier día, mi amor.',
+ '¡Última pista! Contigo quiero seguir descubriéndolo todo, hoy y siempre. 💛'];
+let found=0;
+R.forEach(r=>{const b=document.createElement('div');b.className='bush';b.textContent='🌳';
+ b.onclick=()=>{if(b.classList.contains('o'))return;b.classList.add('s');
+  setTimeout(()=>{b.classList.remove('s');b.classList.add('o');b.textContent='💛';cf(10);
+   $('#bmsg').textContent='';const s=$('#say');s.innerHTML='<div class="say"><div class="jg"></div><span></span></div>';
+   s.querySelector('.jg').append(jimg(2));s.querySelector('span').textContent=r;
+   if(++found==5)$('#b-next').classList.remove('hidden')},450)};
+ $('#bushes').append(b)});
+$('#b-next').onclick=()=>go(3);
+
+/* 4. Carta */
+const L=`Mi changuita hermosa ❤️:
+
+Hoy cumplimos cinco meses y todavía me cuesta creer la suerte que tengo. Contigo aprendí que el amor está en lo pequeño: en los caramelitos cuando voy a recogerte, en reírnos de cualquier cosa y en hacer de cada salida, hasta de ir a Sodimac y Promart, una aventura.
+
+Quiero que sepas que contigo me imagino un futuro bonito. Me imagino muchos meses más que se vuelvan años, celebrando cada aniversario juntos, cumpliendo sueños que hoy parecen lejos y viajando de tu mano a lugares que todavía no conocemos.
+
+Quiero verte lograr todo lo que te propongas y estar a tu lado en cada paso, en los días buenos y también en los difíciles. Quiero construir contigo una vida tranquila, llena de risas, de cariño y de planes que nos hagan felices.
+
+Gracias por quedarte, por cuidarme y por ser mi lugar favorito en el mundo. Te prometo seguir eligiéndote cada día, hoy y siempre.
+
+Te amo muchísimo, mi changuita.
+
+Con todo mi corazón,
+tu changuito, tu programador favorito, James 🦖`;
+let typed=false;
+function typeLetter(){if(typed)return;typed=true;const p=$('#paper');let i=0;
+ const t=setInterval(()=>{p.textContent=L.slice(0,++i);p.scrollTop=p.scrollHeight;
+  if(i>=L.length){clearInterval(t);p.classList.remove('t');$('#l-next').classList.remove('hidden');cf(30)}},26)}
+$('#l-next').onclick=()=>go(4);
+
+/* 5. Vale raspadito */
+function initScratch(){
+ const c=$('#sc');if(c.dataset.i)return;c.dataset.i=1;
+ c.width=c.offsetWidth;c.height=c.offsetHeight;const x=c.getContext('2d');
+ const g=x.createLinearGradient(0,0,c.width,c.height);g.addColorStop(0,'#ffd84a');g.addColorStop(.5,'#fff1a0');g.addColorStop(1,'#e0b72a');
+ x.fillStyle=g;x.fillRect(0,0,c.width,c.height);
+ x.font='700 2rem Fredoka,sans-serif';x.textAlign='center';x.fillStyle='#12351f77';x.fillText('🍌 Raspa aquí 🍌',c.width/2,c.height/2+10);
+ let d=false,done=false,n=0;
+ const sc=e=>{if(!d||done)return;const q=c.getBoundingClientRect();
+  x.globalCompositeOperation='destination-out';x.beginPath();x.arc(e.clientX-q.left,e.clientY-q.top,26,0,7);x.fill();
+  if(++n%4)return;const a=x.getImageData(0,0,c.width,c.height).data;let k=0,t=0;
+  for(let i=3;i<a.length;i+=160){t++;if(!a[i])k++}
+  if(k/t>.35){done=true;c.style.transition='opacity 1s';c.style.opacity=0;cf(90);setTimeout(()=>{if(cur==4)go(5)},4000)}};
+ c.onpointerdown=e=>{d=true;sc(e)};c.onpointermove=sc;addEventListener('pointerup',()=>d=false)}
+$('#v-next').onclick=()=>go(5);
+
+/* 6. Invitación */
+const no=$('#no');
+const dodge=e=>{e.preventDefault();no.style.position='fixed';
+ no.style.left=Math.max(10,Math.random()*(innerWidth-no.offsetWidth-20))+'px';
+ no.style.top=Math.max(70,Math.random()*(innerHeight-no.offsetHeight-90))+'px'};
+no.addEventListener('pointerenter',dodge);no.addEventListener('pointerdown',dodge);
+$('#si').onclick=()=>{$('#row').classList.add('hidden');$('#fin').classList.remove('hidden');cf(120)};
+</script>
+</body>
+</html>
